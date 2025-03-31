@@ -19,7 +19,7 @@ export default function Navbar() {
       try {
         const user = await authService.getCurrentUser()
         setIsLoggedIn(!!user)
-      } catch (error) {
+      } catch {
         setIsLoggedIn(false)
       }
     }

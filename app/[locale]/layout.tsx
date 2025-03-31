@@ -15,14 +15,14 @@ export default async function LocaleLayout({
   params: { locale: string };
 }) {
   const { locale } = await params;
-  if (!['en', 'es'].includes(locale as any)) {
+  if (!['en', 'es'].includes(locale)) {
     notFound();
   }
 
   let messages;
   try {
     messages = (await import(`../../messages/${locale}.json`)).default;
-  } catch (error) {
+  } catch {
     notFound();
   }
 
