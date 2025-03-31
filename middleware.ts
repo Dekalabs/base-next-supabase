@@ -1,6 +1,6 @@
 import { withAuth } from "next-auth/middleware"
 import createIntlMiddleware from 'next-intl/middleware';
-import { NextResponse } from 'next/server';
+import { NextResponse, NextRequest } from 'next/server';
 import { createServerClient } from '@supabase/ssr'
 
 const locales = ['en', 'es'];
@@ -13,7 +13,7 @@ const intlMiddleware = createIntlMiddleware({
 });
 
 // Luego añade la autenticación
-export async function middleware(request) {
+export async function middleware(request: NextRequest) {
   // Obtener el locale de la URL actual
   const locale = request.nextUrl.pathname.split('/')[1]
 
