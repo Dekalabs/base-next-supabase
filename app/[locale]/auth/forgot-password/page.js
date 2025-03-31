@@ -2,8 +2,9 @@
 
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
-import { createClient } from '@supabase/supabase-js'  
+import { createClient } from '@supabase/supabase-js'
 
 export default function ForgotPassword() {
   const t = useTranslations('auth')
@@ -23,16 +24,15 @@ export default function ForgotPassword() {
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
       )
 
-      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      const { error: supabaseError } = await supabase.auth.resetPasswordForEmail(email, {
         redirectTo: `${window.location.origin}/${window.location.pathname.split('/')[1]}/auth/callback`
       })
 
-      if (error) throw error
+      if (supabaseError) throw supabaseError
       
       setSubmitted(true)
-    } catch (error) {
-      console.error('Error resetting password:', error)
-      setError(t('forgotPassword.error') || 'An error occurred')
+    } catch {
+      setError(t('forgotPassword.error'))
     } finally {
       setLoading(false)
     }
@@ -44,9 +44,11 @@ export default function ForgotPassword() {
         <div className="max-w-md w-full text-center space-y-4">
           <div className="flex justify-center mb-6">
             <Link href="/">
-              <img
-                src="/images/digesttrack.png"
-                alt="Digest Track"
+              <Image
+                src="/images/logo.png"
+                alt="MyApp"
+                width={80}
+                height={80}
                 className="h-20 w-auto"
               />
             </Link>
@@ -67,9 +69,11 @@ export default function ForgotPassword() {
         <div className="flex flex-col items-center">
           <div className="flex justify-center mb-6">
             <Link href="/">
-              <img
-                src="/images/digesttrack.png"
-                alt="Digest Track"
+              <Image
+                src="/images/logo.png"
+                alt="MyApp"
+                width={80}
+                height={80}
                 className="h-20 w-auto"
               />
             </Link>

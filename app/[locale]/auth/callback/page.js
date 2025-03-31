@@ -51,7 +51,7 @@ export default function AuthCallback() {
     }
 
     handleCallback()
-  }, [])
+  }, [locale, router, searchParams])
 
   return null
 } 

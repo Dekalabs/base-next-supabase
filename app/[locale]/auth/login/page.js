@@ -2,13 +2,13 @@
 
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState, useEffect } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
-import { authService } from '../../../lib/services/auth'  
+import { useSearchParams } from 'next/navigation'
+import { authService } from '../../../lib/services/auth'
 
 export default function Login() {
   const t = useTranslations('auth')
-  const router = useRouter()
   const searchParams = useSearchParams()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -17,7 +17,6 @@ export default function Login() {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    // Verificar los diferentes parámetros de la URL
     if (searchParams.get('verification') === 'pending') {
       setMessage(t('login.checkEmail'))
     } else if (searchParams.get('verified') === 'true') {
@@ -35,15 +34,9 @@ export default function Login() {
     try {
       setLoading(true)
       await authService.signIn(email, password)
-
-      // Disparar el evento de cambio de autenticación
-      window.dispatchEvent(new Event('auth-state-changed'))
-
-      // Obtener el locale actual de la URL
       const locale = window.location.pathname.split('/')[1]
-      // Redirigir a platform
       window.location.href = `/${locale}/platform`
-    } catch (error) {
+    } catch {
       setError(t('login.invalidCredentials'))
     } finally {
       setLoading(false)
@@ -56,9 +49,11 @@ export default function Login() {
         <div className="flex flex-col items-center">
           <div className="flex justify-center mb-6">
             <Link href="/">
-              <img
+              <Image
                 src="/images/logo.png"
                 alt="MyApp"
+                width={80}
+                height={80}
                 className="h-20 w-auto"
               />
             </Link>

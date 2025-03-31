@@ -2,9 +2,10 @@
 
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { createClient } from '@supabase/supabase-js'  
+import { createClient } from '@supabase/supabase-js'
 
 export default function UpdatePassword() {
   const t = useTranslations('auth')
@@ -31,17 +32,15 @@ export default function UpdatePassword() {
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
       )
 
-      const { error } = await supabase.auth.updateUser({
+      const { error: supabaseError } = await supabase.auth.updateUser({
         password: password
       })
 
-      if (error) throw error
+      if (supabaseError) throw supabaseError
 
-      // Redirigir al login con mensaje de éxito
       const locale = window.location.pathname.split('/')[1]
       router.replace(`/${locale}/auth/login?passwordUpdated=true`)
-    } catch (error) {
-      console.error('Error updating password:', error)
+    } catch {
       setError(t('updatePassword.error'))
     } finally {
       setLoading(false)
@@ -54,9 +53,11 @@ export default function UpdatePassword() {
         <div className="flex flex-col items-center">
           <div className="flex justify-center mb-6">
             <Link href="/">
-              <img
+              <Image
                 src="/images/logo.png"
                 alt="MyApp"
+                width={80}
+                height={80}
                 className="h-20 w-auto"
               />
             </Link>

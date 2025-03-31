@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { useRouter, useParams } from 'next/navigation'
 import { authService } from '../../../lib/services/auth'
@@ -33,12 +34,10 @@ export default function Register() {
 
     try {
       setLoading(true)
-      const { needsEmailVerification } = await authService.signUp(email, password)
-      
-      // Redirigir a login con mensaje de verificación
+      await authService.signUp(email, password)
       router.push(`/${locale}/auth/login?verification=pending`)
-    } catch (error) {
-      setError(error.message)
+    } catch (err) {
+      setError(err.message)
     } finally {
       setLoading(false)
     }
@@ -50,9 +49,11 @@ export default function Register() {
         <div className="text-center">
           <div className="flex justify-center mb-6">
             <Link href="/">
-              <img
+              <Image
                 src="/images/logo.png"
                 alt="MyApp"
+                width={80}
+                height={80}
                 className="h-20 w-auto"
               />
             </Link>
