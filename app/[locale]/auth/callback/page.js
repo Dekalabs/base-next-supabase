@@ -1,10 +1,10 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { createClient } from '@supabase/supabase-js'
 
-export default function AuthCallback() {
+function CallbackContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const locale = window.location.pathname.split('/')[1] || 'es'
@@ -54,4 +54,12 @@ export default function AuthCallback() {
   }, [locale, router, searchParams])
 
   return null
+}
+
+export default function AuthCallback() {
+  return (
+    <Suspense fallback={null}>
+      <CallbackContent />
+    </Suspense>
+  )
 } 

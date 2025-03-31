@@ -3,11 +3,11 @@
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { authService } from '../../../lib/services/auth'
 
-export default function Login() {
+function LoginContent() {
   const t = useTranslations('auth')
   const searchParams = useSearchParams()
   const [email, setEmail] = useState('')
@@ -134,5 +134,13 @@ export default function Login() {
         </form>
       </div>
     </div>
+  )
+}
+
+export default function Login() {
+  return (
+    <Suspense fallback={null}>
+      <LoginContent />
+    </Suspense>
   )
 } 
