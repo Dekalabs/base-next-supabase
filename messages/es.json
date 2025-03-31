@@ -1,0 +1,77 @@
+{
+  "common": {
+    "welcome": "Bienvenido",
+    "loading": "Cargando...",
+    "signIn": "Iniciar sesión",
+    "signOut": "Cerrar sesión"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "about": "Acerca de"
+  },
+  "home": {
+    "title": "Base Next Supabase App",
+    "subtitle": "Acelera tu desarrollo con este scaffold moderno. Autenticación, internacionalización y UI components listos para usar. Construye aplicaciones web profesionales en minutos, no en días.",
+    "github": "Ver en GitHub",
+    "docs": "Documentación"
+  },
+  "auth": {
+    "login": {
+      "title": "Iniciar sesión",
+      "subtitle": "Bienvenido de nuevo",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "signIn": "Iniciar sesión",
+      "forgotPassword": "¿Olvidaste tu contraseña?",
+      "noAccount": "¿No tienes una cuenta?",
+      "createAccount": "Crear cuenta",
+      "invalidCredentials": "Correo electrónico o contraseña incorrectos",
+      "checkEmail": "Por favor, verifica tu correo electrónico",
+      "emailVerified": "Email verificado correctamente",
+      "passwordUpdated": "Contraseña actualizada correctamente"
+    },
+    "register": {
+      "title": "Crear cuenta",
+      "subtitle": "Comienza tu viaje con nosotros",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "confirmPassword": "Confirmar contraseña",
+      "createAccount": "Crear cuenta",
+      "creating": "Creando cuenta...",
+      "alreadyHaveAccount": "¿Ya tienes una cuenta?",
+      "passwordMismatch": "Las contraseñas no coinciden",
+      "terms": {
+        "accept": "Acepto los",
+        "terms": "Términos y condiciones",
+        "and": "y la",
+        "privacy": "Política de privacidad"
+      },
+      "errors": {
+        "termsRequired": "Debes aceptar los términos y condiciones"
+      }
+    },
+    "forgotPassword": {
+      "title": "Recuperar contraseña",
+      "subtitle": "Te enviaremos un enlace para restablecer tu contraseña",
+      "email": "Correo electrónico",
+      "resetPassword": "Enviar enlace",
+      "rememberPassword": "¿Recordaste tu contraseña?",
+      "checkEmail": "Revisa tu correo",
+      "emailSent": "Te hemos enviado un enlace para restablecer tu contraseña",
+      "backToLogin": "Volver al inicio de sesión",
+      "error": "Ha ocurrido un error al enviar el email"
+    },
+    "updatePassword": {
+      "title": "Actualizar contraseña",
+      "subtitle": "Introduce tu nueva contraseña",
+      "newPassword": "Nueva contraseña",
+      "confirmPassword": "Confirmar contraseña",
+      "submit": "Actualizar contraseña",
+      "passwordMismatch": "Las contraseñas no coinciden",
+      "error": "Ha ocurrido un error al actualizar la contraseña"
+    }
+  },
+  "platform": {
+    "title": "Plataforma privada"
+  }
+} 

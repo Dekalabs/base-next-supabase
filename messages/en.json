@@ -1,0 +1,77 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "loading": "Loading...",
+    "signIn": "Sign in",
+    "signOut": "Sign out"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About"
+  },
+  "home": {
+    "title": "Base Next Supabase App",
+    "subtitle": "Speed up your development with this modern scaffold. Authentication, internationalization, and UI components ready to use. Build professional web applications in minutes, not days.",
+    "github": "View on GitHub",
+    "docs": "Documentation"
+  },
+  "auth": {
+    "login": {
+      "title": "Sign in",
+      "subtitle": "Welcome back",
+      "email": "Email address",
+      "password": "Password",
+      "signIn": "Sign in",
+      "forgotPassword": "Forgot your password?",
+      "noAccount": "Don't have an account?",
+      "createAccount": "Create account",
+      "invalidCredentials": "Invalid email or password",
+      "checkEmail": "Please check your email",
+      "emailVerified": "Email successfully verified",
+      "passwordUpdated": "Password successfully updated"
+    },
+    "register": {
+      "title": "Create account",
+      "subtitle": "Start your journey with us",
+      "email": "Email address",
+      "password": "Password",
+      "confirmPassword": "Confirm password",
+      "createAccount": "Create account",
+      "creating": "Creating account...",
+      "alreadyHaveAccount": "Already have an account?",
+      "passwordMismatch": "Passwords do not match",
+      "terms": {
+        "accept": "I accept the",
+        "terms": "Terms and Conditions",
+        "and": "and",
+        "privacy": "Privacy Policy"
+      },
+      "errors": {
+        "termsRequired": "You must accept the terms and conditions"
+      }
+    },
+    "forgotPassword": {
+      "title": "Reset password",
+      "subtitle": "We'll send you a link to reset your password",
+      "email": "Email address",
+      "resetPassword": "Send reset link",
+      "rememberPassword": "Remember your password?",
+      "checkEmail": "Check your email",
+      "emailSent": "We've sent you a password reset link",
+      "backToLogin": "Back to sign in",
+      "error": "An error occurred while sending the email"
+    },
+    "updatePassword": {
+      "title": "Update password",
+      "subtitle": "Enter your new password",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm password",
+      "submit": "Update password",
+      "passwordMismatch": "Passwords do not match",
+      "error": "An error occurred while updating the password"
+    }
+  },
+  "platform": {
+    "title": "Private Platform"
+  }
+} 
